@@ -61,7 +61,7 @@ export default function App() {
         I am Anand. Building something new 👀
         </div>
 
-        <button className="waveButton" onClick={null}>
+        <button className="bumpButton" onClick={null}>
           Bump me here 👊 
         </button>
 
