@@ -64,6 +64,9 @@ export default function App() {
       console.log("Retrieved total bump count...", count.toNumber());
     }
     
+    const [countBumps, setCountBumps] = React.useState(0);
+    setCountBumps(count)
+
     React.useEffect(() => {
       checkIfWalletIsConnected()
     }, [])
@@ -77,7 +80,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-        Handshakes 🤝 are prehistoric aka precovid. Fist Bump me here 👊 
+        Handshakes 🤝 are prehistoric/ precovid. Fist Bump me here 👊 
         </div>
 
         <button className="bumpButton" onClick={bump}>
@@ -90,7 +93,7 @@ export default function App() {
         </button>
         )}
 
-        <div className="bumpCount">Total Bumps: {count.toNumber()}👊</div>
+        <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
       </div>
     </div>
   );
