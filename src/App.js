@@ -63,12 +63,11 @@ export default function App() {
       console.log("Mined -- ", bumpTxn.hash);
 
       count = await bumpportalContract.getTotalBumps();
-      console.log(count);
       console.log("Retrieved total bump count...", count.toNumber());
 
-      setCountBumps(count);
+      setCountBumps(count.toNumber());
     }
-    console.log(countBumps);
+    // console.log(countBumps);
 
     React.useEffect(() => {
       checkIfWalletIsConnected()
@@ -96,7 +95,7 @@ export default function App() {
         </button>
         )}
 
-        <div className="bumpCount">Total Bumps: 👊</div>
+        <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
       </div>
     </div>
   );
