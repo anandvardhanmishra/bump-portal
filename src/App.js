@@ -11,6 +11,14 @@ export default function App() {
   const contractAddress = "0xa558b88B4FF16136876FB276c2aBb6ACf25B1BB8"
   const contractABI = abi.abi;
   
+  const retrieve =  function() {
+    const provider = new ethers.providers.Web3Provider(window.ethereum); 
+    const signer = provider.getSigner();
+    const bumpportalContract = new ethers.Contract(contractAddress, contractABI, signer);
+    let count = await bumpportalContract.getTotalBumps();
+    setCountBumps(count.toNumber());
+  }
+
   const checkIfWalletIsConnected = () => {
       // First Make Sure we have access to window.ethereum
       const { ethereum } = window;
@@ -29,6 +37,8 @@ export default function App() {
           console.log("Found an authorized account: ", account);
           // Store the user's public wallet address for later
           setCurrentAccount(account);
+
+          retrieve();
         } else {
           console.log("No authorized account found");
         }
@@ -67,7 +77,6 @@ export default function App() {
 
       setCountBumps(count.toNumber());
     }
-    // console.log(countBumps);
 
     React.useEffect(() => {
       checkIfWalletIsConnected()
