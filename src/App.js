@@ -54,6 +54,14 @@ export default function App() {
 
       let count = await bumpportalContract.getTotalBumps();
       console.log("Retrieved total bump count...", count.toNumber());
+
+      const bumpTxn = await bumpportalContract.bump();
+      console.log("Mining...", bumpTxn.hash);
+      await bumpTxn.wait();
+      console.log("Mined -- ", bumpTxn.hash);
+
+      count = await bumpportalContract.getTotalBumps();
+      console.log("Retrieved total bump count...", count.toNumber());
     }
     
     React.useEffect(() => {
