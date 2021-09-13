@@ -63,6 +63,7 @@ export default function App() {
       console.log("Mined -- ", bumpTxn.hash);
 
       count = await bumpportalContract.getTotalBumps();
+      console.log(count);
       console.log("Retrieved total bump count...", count.toNumber());
 
       setCountBumps(count);
