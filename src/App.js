@@ -64,7 +64,7 @@ export default function App() {
       count = await bumpportalContract.getTotalBumps();
       console.log("Retrieved total bump count...", count.toNumber());
 
-      setCountBumps(bump);
+      setCountBumps(count);
     }
     
 
