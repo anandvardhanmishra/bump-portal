@@ -31,7 +31,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-        I am Anand. I worked as a PM earlier. Now building something new 👀🌟
+        I am Anand. I worked as a PM earlier. Now building something new 👀
         </div>
 
         <button className="waveButton" onClick={wave}>
