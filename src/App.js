@@ -1,11 +1,14 @@
 import * as React from "react";
 import { ethers } from "ethers";
 import './App.css';
+import abi from './utils/BumpPortal.json'
 
 export default function App() {
   // Just a state variable we use to store our user's public wallet address
   const[currAccount, setCurrentAccount] = React.useState("");
-  
+  const contractAddress = "0xa558b88B4FF16136876FB276c2aBb6ACf25B1BB8"
+  const contractABI = abi.abi;
+
   const checkIfWalletIsConnected = () => {
       // First Make Sure we have access to window.ethereum
       const { ethereum } = window;
@@ -22,7 +25,6 @@ export default function App() {
           // Grab the first account we have access to
           const account = accounts[0];
           console.log("Found an authorized account: ", account);
-          
           // Store the user's public wallet address for later
           setCurrentAccount(account);
         } else {
@@ -44,6 +46,15 @@ export default function App() {
       })
       .catch(err => console.log(err))
     }
+
+    const bump = async () => {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
+      const bumpportalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+      let count = await bumpportalContract.getTotalBumps();
+      console.log("Retrieved total bump count...", count.toNumber());
+    }
     
     React.useEffect(() => {
       checkIfWalletIsConnected()
@@ -61,7 +72,7 @@ export default function App() {
         I am Anand. Building something new 👀
         </div>
 
-        <button className="bumpButton" onClick={null}>
+        <button className="bumpButton" onClick={bump}>
           Bump me here 👊 
         </button>
 
