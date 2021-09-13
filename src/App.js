@@ -89,6 +89,8 @@ export default function App() {
           Connect Wallet
         </button>
         )}
+
+        <div className="bumpCount">Total Bumps: ${count}👊</div>
       </div>
     </div>
   );
