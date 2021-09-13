@@ -67,7 +67,7 @@ export default function App() {
 
       setCountBumps(count);
     }
-    
+    console.log(countBumps);
 
     React.useEffect(() => {
       checkIfWalletIsConnected()
@@ -95,7 +95,7 @@ export default function App() {
         </button>
         )}
 
-        <div className="bumpCount">Total Bumps: {countBumps.toNumber()} 👊</div>
+        <div className="bumpCount">Total Bumps: 👊</div>
       </div>
     </div>
   );
