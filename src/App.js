@@ -11,7 +11,7 @@ export default function App() {
   const contractAddress = "0xa558b88B4FF16136876FB276c2aBb6ACf25B1BB8"
   const contractABI = abi.abi;
   
-  const retrieve =  function() {
+  const retrieve =  async function() {
     const provider = new ethers.providers.Web3Provider(window.ethereum); 
     const signer = provider.getSigner();
     const bumpportalContract = new ethers.Contract(contractAddress, contractABI, signer);
@@ -91,7 +91,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-        Handshakes 🤝 are prehistoric/ precovid. Fist Bump me here 👊 
+        Handshakes 🤝 are prehistoric + precovid. Fist Bump me here 👊 
         </div>
 
         <button className="bumpButton" onClick={bump}>
