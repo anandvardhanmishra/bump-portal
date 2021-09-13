@@ -77,7 +77,7 @@ export default function App() {
         </div>
 
         <div className="bio">
-        I am Anand. Building something new 👀
+        Handshakes 🤝 are prehistoric aka precovid. Fist Bump me here 👊 
         </div>
 
         <button className="bumpButton" onClick={bump}>
