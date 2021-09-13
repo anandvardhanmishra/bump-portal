@@ -4,7 +4,7 @@ import './App.css';
 
 export default function App() {
   // Just a state variable we use to store our user's public wallet address
-  const[currAccount, setCurrAccount] = React.useState("");
+  const[currAccount, setCurrentAccount] = React.useState("");
   
   const checkIfWalletIsConnected = () => {
       // First Make Sure we have access to window.ethereum
@@ -24,14 +24,27 @@ export default function App() {
           console.log("Found an authorized account: ", account);
           
           // Store the user's public wallet address for later
-          setCurrAccount(account);
+          setCurrentAccount(account);
         } else {
           console.log("No authorized account found");
         }
       })
     }
+
+    const connectWallet = () => {
+      const { ethereum } = window;
+      if(!ethereum) {
+        alert('Get metamask!')
+      }
+
+      ethereum.request({ method: 'eth_requestAccounts '})
+      .then(accounts => {
+        console.log("Connected", accounts[0]);
+        setCurrentAccount(accounts[0]);
+      })
+      .catch(err => console.log(err))
+    }
     
-    // This runs our function when the page loads
     React.useEffect(() => {
       checkIfWalletIsConnected()
     }, [])
@@ -49,8 +62,14 @@ export default function App() {
         </div>
 
         <button className="waveButton" onClick={null}>
-          Wave at Me
+          Bump me here 👊 
         </button>
+
+        {currAccount ? null : (
+        <button className="bumpButton" onClick={connectWallet}>
+          Connect Wallet
+        </button>
+        )}
       </div>
     </div>
   );
