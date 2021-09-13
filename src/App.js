@@ -3,11 +3,10 @@ import { ethers } from "ethers";
 import './App.css';
 
 export default function App() {
-
-  const wave = () => {
-    checkIfWalletIsConnected = () => {
+  
+  const checkIfWalletIsConnected = () => {
       // First Make Sure we have access to window.ethereum
-      const {ethereum} = window;
+      const { ethereum } = window;
       if(!ethereum) {
         console.log("Make sure you have metamask!");
         return 
@@ -20,7 +19,6 @@ export default function App() {
     React.useEffect(() => {
       checkIfWalletIsConnected()
     }, [])
-  }
   
   return (
     <div className="mainContainer">
@@ -34,7 +32,7 @@ export default function App() {
         I am Anand. Building something new 👀
         </div>
 
-        <button className="waveButton" onClick={wave}>
+        <button className="waveButton" onClick={null}>
           Wave at Me
         </button>
       </div>
