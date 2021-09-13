@@ -65,7 +65,7 @@ export default function App() {
     }
     
     const [countBumps, setCountBumps] = React.useState(0);
-    setCountBumps(count)
+    setCountBumps(bump);
 
     React.useEffect(() => {
       checkIfWalletIsConnected()
