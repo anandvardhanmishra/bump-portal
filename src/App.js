@@ -37,7 +37,7 @@ export default function App() {
         alert('Get metamask!')
       }
 
-      ethereum.request({ method: 'eth_requestAccounts '})
+      ethereum.request({ method: 'eth_requestAccounts' })
       .then(accounts => {
         console.log("Connected", accounts[0]);
         setCurrentAccount(accounts[0]);
