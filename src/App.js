@@ -5,10 +5,11 @@ import abi from './utils/BumpPortal.json'
 
 export default function App() {
   // Just a state variable we use to store our user's public wallet address
-  const[currAccount, setCurrentAccount] = React.useState("");
+  const [currAccount, setCurrentAccount] = React.useState("");
+  const [countBumps, setCountBumps] = React.useState(0);
   const contractAddress = "0xa558b88B4FF16136876FB276c2aBb6ACf25B1BB8"
   const contractABI = abi.abi;
-
+  
   const checkIfWalletIsConnected = () => {
       // First Make Sure we have access to window.ethereum
       const { ethereum } = window;
@@ -62,10 +63,10 @@ export default function App() {
 
       count = await bumpportalContract.getTotalBumps();
       console.log("Retrieved total bump count...", count.toNumber());
+
+      setCountBumps(bump);
     }
     
-    const [countBumps, setCountBumps] = React.useState(0);
-    setCountBumps(bump);
 
     React.useEffect(() => {
       checkIfWalletIsConnected()
