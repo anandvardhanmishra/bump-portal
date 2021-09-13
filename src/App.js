@@ -90,7 +90,7 @@ export default function App() {
         </button>
         )}
 
-        <div className="bumpCount">Total Bumps: ${count}👊</div>
+        <div className="bumpCount">Total Bumps: {count} 👊</div>
       </div>
     </div>
   );
