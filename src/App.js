@@ -6,6 +6,7 @@ import abi from './utils/BumpPortal.json'
 export default function App() {
   // Just a state variable we use to store our user's public wallet address
   const [currAccount, setCurrentAccount] = React.useState("");
+  // State variable for counting number of bumps 
   const [countBumps, setCountBumps] = React.useState(0);
   const contractAddress = "0xa558b88B4FF16136876FB276c2aBb6ACf25B1BB8"
   const contractABI = abi.abi;
@@ -94,7 +95,7 @@ export default function App() {
         </button>
         )}
 
-        <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
+        <div className="bumpCount">Total Bumps: {countBumps.toNumber()} 👊</div>
       </div>
     </div>
   );
