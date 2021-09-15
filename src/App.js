@@ -143,7 +143,7 @@ export default function App() {
             name="message"
             placeholder="Enter your message:"
             rows="5"
-            cols="33"
+            cols="75"
             value={message}
             onChange={(event) => setMessage(event.target.value)}
           />
