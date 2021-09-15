@@ -10,7 +10,7 @@ export default function App() {
   const [countBumps, setCountBumps] = React.useState(0);
   const contractAddress = "0x9B1549AF98cEE4B5576C6574C74b2FAF0B5b5DA2";
   const contractABI = abi.abi;
-
+  const [message, setMessage] = React.useState("");
   const [allBumps, setAllBumps] = React.useState([]);
   async function getAllBumps() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -101,7 +101,7 @@ export default function App() {
     let count = await bumpportalContract.getTotalBumps();
     console.log("Retrieved total bump count...", count.toNumber());
 
-    const bumpTxn = await bumpportalContract.bump("bumping you 😎👊");
+    const bumpTxn = await bumpportalContract.bump(message);
     console.log("Mining...", bumpTxn.hash);
     await bumpTxn.wait();
     console.log("Mined -- ", bumpTxn.hash);
@@ -136,6 +136,11 @@ export default function App() {
         )}
 
         <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
+
+        <textarea
+          value={message}
+          onChange={(event) => setMessage(event.target.value)}
+        />
 
         {allBumps.map((bump, index) => {
           return (
