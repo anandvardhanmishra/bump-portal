@@ -24,7 +24,7 @@ export default function App() {
     let bumps = await bumpportalContract.getAllBumps();
 
     let bumpsCleaned = [];
-    bumps.forEach((wave) => {
+    bumps.forEach((bump) => {
       bumpsCleaned.push({
         address: bump.bumper,
         timestamp: new Date(wave.timestamp * 1000),
