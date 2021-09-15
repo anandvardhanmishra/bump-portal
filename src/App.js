@@ -27,7 +27,7 @@ export default function App() {
     bumps.forEach((bump) => {
       bumpsCleaned.push({
         address: bump.bumper,
-        timestamp: new Date(wave.timestamp * 1000),
+        timestamp: new Date(bump.timestamp * 1000),
         message: bump.message,
       });
     });
