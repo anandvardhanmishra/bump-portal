@@ -137,10 +137,19 @@ export default function App() {
 
         <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
 
-        <textarea
+        {/* <textarea
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-        />
+        /> */}
+
+        <div>
+          <input
+            type="textarea"
+            placeholder="Enter your message:"
+            name="textValue"
+            onChange={(event) => setMessage(event.target.value)}
+          />
+        </div>
 
         {allBumps.map((bump, index) => {
           return (
