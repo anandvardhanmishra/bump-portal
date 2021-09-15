@@ -137,16 +137,14 @@ export default function App() {
 
         <div className="bumpCount">Total Bumps: {countBumps} 👊</div>
 
-        {/* <textarea
-          value={message}
-          onChange={(event) => setMessage(event.target.value)}
-        /> */}
-
         <div>
-          <input
-            type="textarea"
+          <textarea
+            id="message"
+            name="message"
             placeholder="Enter your message:"
-            name="textValue"
+            rows="5"
+            cols="33"
+            value={message}
             onChange={(event) => setMessage(event.target.value)}
           />
         </div>
